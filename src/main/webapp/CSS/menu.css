@@ -1,0 +1,182 @@
+/*
+* Francisco da Crux Xavier
+* 30/02/2017
+*
+* menu interno netflix
+*/
+
+
+
+.fundo-menu{
+	background-color: #141414;
+	width: 100%;
+	height: 162px;
+	border-bottom: 1px solid gray;
+
+}
+.menu-interno ul{
+	width: 80%;
+	padding: 0px;
+	margin: auto;
+	position: relative;
+}
+.menu-interno ul li{
+	width: 32%;
+	height: 158px;
+	display: inline-block;
+	vertical-align: top;
+	fill: #757575;
+}
+
+.menu-interno ul li :hover{
+	fill: white; 
+	color: white;
+}
+
+
+
+.menu-interno ul li a{
+	text-decoration: none;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 0px;
+	color: #757575;
+}
+
+.icon{
+	height: 49px;
+	width: 80%;
+	display: block;
+	margin: auto;
+	
+}
+
+
+.active a{
+	width: 100%;
+	background-color: #141414;
+}
+
+.barra-menu{
+	width: 100%;
+	height: 5px;
+	background-color: #141414;
+	position: absolute;
+	bottom: 2px;
+}
+
+.barra-menu.active{
+	background-color: #e62e00;
+}
+.tabela{
+	width: 100%;
+	margin-top: 20px;
+}
+
+
+.item {
+	width: 100%;
+	height: 80%;
+	margin-top: 20px;
+	position: relative;
+	background-color: #141414;
+}
+
+
+
+.menu-item {
+	margin-top: 10px;
+	width: 100%;
+}
+.menu-item p{
+
+	text-align: center;
+	font-size: 15px;
+	margin: 0px;
+
+}
+
+
+.menu-interno p{
+	margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1000px){
+	.item{
+		margin-top: 10px;
+	}
+	.fundo-menu{
+		height: 147px;
+	}
+
+	.menu-interno ul li{
+
+		height: 151px;
+	
+	}
+
+
+}
+
+@media only screen and (max-width: 900px){
+	.icon{
+		margin: auto;
+		height: 34px;
+	
+	}
+
+	.fundo-menu{
+		height: 120px;
+	}
+
+	.menu-interno ul li{
+
+		height: 118px;
+	
+	}
+}
+
+@media only screen and (max-width: 700px){
+
+	.item{
+		margin-top: 2px;
+	}
+
+	.icon{
+		margin: auto;
+		height: 34px;
+	
+	}
+	.fundo-menu{
+		height: 85px;
+	}
+
+	.menu-interno ul li{
+
+		height: 84px;
+	
+	}
+}
+@media  only screen and (max-width: 400px){
+	
+	.menu-interno ul li{
+	
+		height: 80px;
+	
+	}
+
+	.menu-interno ul li a{
+		
+		margin-top: -10px;
+	}
+
+	
+
+	.barra-menu{
+		width: 100%;
+		height: 2px;
+		bottom: -10px;
+      }		
+
+	
+}

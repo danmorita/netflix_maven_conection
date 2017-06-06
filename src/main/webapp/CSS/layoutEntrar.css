@@ -1,0 +1,157 @@
+html{
+	background: url("../Imagens/login-the-crown_2-1500x1000.jpg") no-repeat;
+	background-size: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+body{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+.logo{
+	width: 175px;
+	margin-left: 37px;
+	margin-top: -5px;
+}
+.caixaEntrar{
+	width: 410px;
+	height: 533px;
+	background-color: #f3f3f3;
+	margin: auto;
+	margin-top: -4px;
+	padding-top: 20px;
+	padding-left: 48px; 
+}
+#numero{
+	height: 35px;
+	width: 360px;
+	margin-bottom: 20px;
+}
+#senha{
+	height: 35px;
+	width: 360px;
+	margin-bottom: 65px;
+}
+.forget{
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+button{
+	width: 360px;
+	height: 50px;
+	display: inline-block;
+	background-color: #df0712;
+	border-radius: 2px;
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+}
+.boto{
+	width: 360px;
+	height: 50px;
+	display: inline-block;
+	background-color: #df0712;
+	border-radius: 2px;
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+}
+.lembre{
+	width: 360px;
+	height: 30px;
+	margin-bottom: 16px;
+	border-bottom: 1px solid;
+	border-color: #ccc;
+}
+.facebookLogo{
+	width: 22px;
+}
+.facebookLink{
+	margin-left: 8px;
+}
+.inscreva{
+	margin-top: 10px;
+}
+
+.rodape{
+	margin-top: 75px;
+	width: 100%;
+	height: 225px;
+	background-color: #f3f3f3;
+	padding-left: 5%;
+	padding-top: 40px;
+}
+.duvidas{
+	margin-bottom: 40px;
+}
+.termos1{
+	font-size: 13px;
+}
+.cartao{
+	margin-right: 4%;
+}
+.uso{
+	margin-right: 10%;
+}
+.idiomas{
+	margin-top: 40px;
+    background: transparent;
+    width: 165px;
+    height: 41px;
+    font-size: 14px;
+    color: black;
+    border: 1px solid #b3b3b3;
+    border-radius: 2px;
+    padding-left: 50px;
+    background-image: url(../Imagens/globe.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+@media  only screen and (max-width: 1440px){
+	html{
+		background-size: cover;
+		}
+}
+
+@media  only screen and (max-width: 740px){
+	html{
+		background-size: 0%;
+	}
+	.caixaEntrar{
+		width: 100%;
+		height: 500px;
+		padding-left: 7%;
+	}
+
+	.rodape{
+		margin-top: auto;
+		padding-left: 7%; 
+		border: 1px solid #e6e6e6;
+	}
+	#numero{
+		width: 85%;
+	}
+	#senha{
+		width: 85%;
+	}
+	button{
+		width: 85%;
+	}
+}
+
+@media  only screen and (max-width: 440px){
+	.head{
+		height: 49px;
+	}
+	.logo{
+		margin-top: 10px;
+		margin-left: 11px;
+		width: 76px;
+	}	
+	.caixaEntrar{
+		padding-top: 0px;
+		border: 1px solid #e6e6e6;
+	}
+}

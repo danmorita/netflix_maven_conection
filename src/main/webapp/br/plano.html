@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="Netflix" content="">
+        <title>Netflix-Assista um mês gratis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/layoutPlano.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/tabelaPlano.css">
+        <link rel="author" href="humans.txt">
+        <script src="../JS/plano.js"></script>
+    </head>
+    <body>
+        <div class="top">
+        	<div class="ico">
+				<a href="index.html" ><img class="logo" src="../Imagens/logo.png"/></a>
+				<a href="../br/entrar.html" class="botao login">Entrar</a>
+			</div>
+        </div>
+        <div class="mid">
+        	<h1>Escolha o melhor plano para você</h1>
+        	<p>Troque de plano quando quiser</p>
+        	
+        	<div class="quadro">
+	        	<table class="tabela" >
+					<tr >
+					  	<th class= "titulo"></th>
+						    <th><div id="basico" onclick="selecao('basico')" class="caixa">
+        						Básico
+        						</div>
+        					</th>
+						    <th><div id="padrao" onclick="selecao('padrao')" class="caixa">
+        						Padrão
+        						</div>
+        					</th> 
+						    <th><div id="premium" onclick="selecao('premium')" class="caixa">
+        						Premium
+        						</div>
+        					</th>					    
+				    </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 	 	Pre&ccedilo mensal ap&oacutes o m&ecircs gr&aacutetis, que termina em 28/04/17
+					 	 </td>
+					  </tr>
+
+					  <tr>
+					    <td class= "titulo" >Pre&ccedilo mensal ap&oacutes o m&ecircs gr &aacutetis, que termina em 28/04/17</td>
+					    <td id="selBasico" class="corBasico">R$19,90</td>		
+					    <td id="selPadrao" class="corPadrao">R$22,90</td>
+					    <td id="selPremium" class="corPremium">R$29,90</td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		HD dispon&iacutevel
+					 	 </td>
+					  </tr>
+
+					  <tr>
+					   <td class= "titulo" >HD dispon&iacutevel</td>
+					    <td id="selBasico1" class="uncheck"></td>
+					    <td id="selPadrao1" class="check"></td>
+					    <td id="selPremium1" class="check"></td>
+					  </tr>
+
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Ultra HD dispon&iacutevel 
+					 	 </td>
+					  </tr>
+
+
+					  <tr>
+					   <td class= "titulo" >Ultra HD dispon&iacutevel </td>
+					    <td id="selBasico2" class="uncheck"></td>
+					    <td id="selPadrao2" class="uncheck"></td>
+					    <td id="selPremium2" class="check"></td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Telas simult&acircneas
+					 	 </td>
+					  </tr>
+
+					  <tr>
+					    <td class= "titulo" >Telas simult&acircneas</td>
+					    <td id="selBasico3" class="corBasico">1</td>
+					    <td id="selPadrao3" class="corPadrao">2</td>
+					    <td id="selPremium3" class="corPremium">4</td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Assista no notebook, TV, smartphone ou tablet
+					 	 </td>
+					  </tr>
+
+					  <tr>
+					    <td class= "titulo" >Assista no notebook, TV, smartphone ou tablet</td>
+					    <td id="selBasico4" class="check"></td>
+					    <td id="selPadrao4" class="check"></td>
+					    <td id="selPremium4" class="check"></td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Filmes e s&eacuteries ilimitados
+					 	 </td>
+					  </tr>
+
+					  <tr>
+					    <td class= "titulo" >Filmes e s&eacuteries ilimitados</td>
+					    <td id="selBasico5" class="check" ></td>
+					    <td id="selPadrao5" class="check"></td>
+					    <td id="selPremium5" class="check"></td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Cancele quando quiser
+					 	 </td>
+					  </tr>
+
+					   <tr>
+					    <td class= "titulo" >Cancele quando quiser</td>
+					    <td id="selBasico6" class="check"></td>
+					    <td id="selPadrao6" class="check"></td>
+					    <td id="selPremium6" class="check"></td>
+					  </tr>
+					  <tr class= "titulo2">
+					  	<td colspan="3" >
+					 		Primeiro m&ecircs gr&aacutetis
+					 	 </td>
+					  </tr>
+
+					   <tr>
+					    <td class= "titulo" >Primeiro m&ecircs gr&aacutetis</td>
+					    <td id="selBasico7" class="check"></td>
+					    <td id="selPadrao7" class="check"></td>
+					    <td id="selPremium7" class="check"></td>
+					  </tr>
+					</table>
+				</div>	
+			<div class=termos>
+				<h5>A disponibilidade de alte refinição (HD) e ultra alta definição (Ultra HD) está sujeita ao serviço de internet e à funcionalidade do aparelho. Nem todo conteúdo está disponível em HD ou Ultra HD. Para obter mais detalhes, consulte os</h5>
+				<a href="" class="termosUso">Termos de uso</a>
+			</div>
+			<div class="quadroCad">
+				<div class="cadastro">
+					<h2>Assisa um mês grátris</h2>
+					<h3>Crie sua conta:</h3>
+					<div class="conta">
+						<span>Nome</span>
+						<div class="nome">
+							<input type="text" id="nome">
+						</div>
+						<span>Email</span>
+						<div class="email">
+							<input type="text" id="email">
+						</div>
+						<span>Endereco</span>
+						<div class="endereco">
+							<input type="text" id="endereco">
+						</div>
+						<span>Escolha uma senha (4-50 caracteres)</span>
+						<div class="senha">
+							<input type="text" id="senha">
+						</div>
+					</div>
+					
+					<button class="botao criar" onclick="">Crie uma conta</button><p id="msg"></p>
+					
+				</div>
+				<div class="passo">
+					<span class="frase1">Faltam só dois passos!</span>
+					<span class="frase2">Nós também detestamos formulários.</span>
+				</div>
+			</div>
+
+        </div>
+        <div class="rodape">
+        	<div class="duvidas">
+				<span>Dúvidas? Ligue </span>
+				<a href="" class="ligue">0800-887-0201</a>
+			</div>
+			<div class="termos1">
+				<a href="" class="termos2">Termos de uso</a>
+				<a href="" class="privacidade">Privacidade</a>
+				<a href="" class="cookies">Preferências de cookies</a>
+			</div>
+			
+			<!--seletor de idiomas-->
+			<select class = "idiomas" onchange="tradutor()" id="idioma">
+		  		<option value="PT" selected="selected" >PORTUGUES</option>
+		  		<option value="EN" >ENGLISH</option>
+			</select>
+        </div>
+    </body>
+</html>

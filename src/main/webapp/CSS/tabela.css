@@ -1,0 +1,83 @@
+
+
+.centralizar{
+	text-align: center;
+}
+.tabela table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #9e9e9e;
+}
+	
+
+.tabela th, td {
+   color: #9e9e9e;
+    padding: 12px;
+
+}
+
+.tabela td{
+	text-align: center;
+}
+
+.tabela tr{
+	width: 100%;
+}
+.tabela td.titulo {
+	text-align: left;
+
+}
+.tabela tr.titulo2{
+	display: none;
+	text-align: center;
+	font-size: 14px;
+
+}
+
+.tabela th {
+	background-color: black;
+}
+.tabela tr{
+	background-color: #141414;
+}
+
+.tabela tr:nth-child(4n + 3){background-color: black}
+
+
+.check{
+	background: url("../Imagens/check.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.uncheck{
+	background: url("../Imagens/uncheck.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media only screen and (max-width:  900px){
+	.tabela tr{
+		width: 50%;
+	}
+}
+@media  only screen and (max-width: 700px){
+	.tabela {
+		font-size: 14px;
+	}
+	.titulo{
+		display: none;
+	}
+
+	.tabela tr.titulo2{
+		display: table-row;
+	}
+
+	.tabela tr:nth-child(4n + 3){background-color: #141414;}
+
+	.tabela tr:nth-child(even){background-color: black;}
+	.tabela tr:nth-child(odd){background-color: black;}
+
+
+
+}
