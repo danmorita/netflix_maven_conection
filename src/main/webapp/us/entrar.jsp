@@ -12,6 +12,12 @@
       <a href="index.html" ><img class="logo" src="../Imagens/logo.png"/></a>
     </div>
   </div>
+  <%
+
+  	if(request.getSession().getAttribute("logado")!= null){
+  			response.sendRedirect("http://localhost:8080/netflix/timeline");
+  	}
+  %>
   <div class="mid">
     <div class="caixaEntrar">
       <h1>Sign In</h1>  
@@ -45,10 +51,6 @@
                 }
              %></p>
           </div>
-          
-          <div class="forget">
-            <a href="">Forgot your email or password?</a>
-          </div>
           <div class="botao">
             <button type="submit">Sign In</button>
           </div>
@@ -56,7 +58,7 @@
       </form>
       <div class="inscreva">
         <span>New to Netflix?</span>
-        <a href="">Sign up now.</a>
+        <a href="http://localhost:8080/netflix/us/cadastro.jsp">Sign up now.</a>
       </div>
     </div>
   </div>

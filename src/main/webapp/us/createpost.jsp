@@ -19,6 +19,12 @@
                         if (conteudo == null) {
                             conteudo = "";
                         }
+                        if(request.getSession().getAttribute("logado")== null){
+                            response.sendRedirect("http://localhost:8080/netflix/us/erro.jsp?msg=Voce%20precisa%20estar%20logado%20para%20acessar%20este%20recurso");
+                        }else if(request.getSession().getAttribute("admin")== null){
+                                    response.sendRedirect("http://localhost:8080/netflix/us/erro.jsp?msg=Voce%20precisa%20ser%20um%20administrador%20para%20acessar%20este%20recurso");
+                        }
+
                     %>
                     <textarea name="message" id="cont" rows="10" cols="50"  ><%out.println(conteudo);%></textarea>
 

@@ -1,0 +1,14 @@
+html{
+	background-color: #b5afaf;
+	padding-bottom: 20px;
+}
+img{
+	width: 80%;
+	display: block;
+    margin: 0 auto;
+}
+video{
+	width: 60%;
+	display: block;
+    margin: 0 auto;
+}

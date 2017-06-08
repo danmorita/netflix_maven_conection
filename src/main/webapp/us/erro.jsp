@@ -8,7 +8,13 @@
 <body background="../Imagens/linho-cinza-textura-de-fundo_1053-253.jpg">
 	<div class="conteudo">
 		<div class="titulo">
-			<h1>Desculpe, você não possui acesso ao conteúdo... </h1>
+		<% 
+			String msg = request.getParameter("msg");
+			if (msg == null)
+				msg = "Ocorreu um erro desconhecido ao tentar acessar o recurso";
+
+			%>
+			<h1>  <%out.println(msg);%></h1>
 		</div>
 		<div class="logo">
 			<img src="../Imagens/220px-Achtung.svg.png" alt="Sem Acesso">

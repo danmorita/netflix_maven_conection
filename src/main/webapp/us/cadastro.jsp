@@ -12,6 +12,12 @@
 			<a href="index.html" ><img class="logo" src="../Imagens/logo.png"/></a>
 		</div>
 	</div>
+	 <%
+
+  	if(request.getSession().getAttribute("logado")!= null){
+  			response.sendRedirect("http://localhost:8080/netflix/timeline");
+  	}
+  %>
 	<div class="mid">
 		<div class="caixaEntrar">
 			<h1>Sign Up</h1>	
@@ -28,7 +34,7 @@
 						<p><%
 			                String usernameerro = request.getParameter("usernameerro");
 			                if(usernameerro != null){
-			                  out.println("Username is alreally in use, chosee other!");
+			                  out.println("Username is alreally in use, choose another!");
 			                }
 			             %></p>
 					</div>
@@ -43,7 +49,7 @@
 						<p><%
 			                String emailerro = request.getParameter("emailerro");
 			                if(emailerro != null){
-			                  out.println("Email is alreally in use, chosee other!");
+			                  out.println("Email is alreally in use, choose another!");
 			                }
 			             %></p>	
 					</div>
@@ -51,7 +57,7 @@
 					<div class="email">
 						<% String endereco = request.getParameter("endereco");
 		                if(endereco == null){
-		                  	endereco = "";
+		                  	endereco = " ";
 		                } 
 		          	    %>
 						<input type="text" name="endereco" required="required" value= <%=endereco%> >
@@ -60,15 +66,11 @@
 					<div class="senha">
 						<input type="password" name="senha" required="required">
 					</div>
-					<div class="forget">
-						<a href="">Forgot your email or password?</a>
-					</div>
+					
 					<div class="botao">
 						<input class="boto" type="submit" name="Sign in"/>
 					</div>
-					<div class="lembre">
-						<input type="checkbox" name="lembre" value="html"/>Remember me<br/>
-					</div>
+					<a href="http://localhost:8080/netflix/us/entrar.jsp" class="uso">SIGN IN</a>
 				</div>
 			</form>
 		</div>

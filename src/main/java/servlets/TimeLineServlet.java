@@ -35,27 +35,40 @@ public class TimeLineServlet extends HttpServlet {
       }
       System.out.println("posts "+posts);
       response.getWriter().println("<html><head><link rel='stylesheet'type='text/css' href='../netflix/CSS/timeline.css'/></head><body background='../netflix/Imagens/linho-cinza-textura-de-fundo_1053-253.jpg'>");
-      response.getWriter().println("<div class='head'><h1>Posts recentes </h1>");
-      response.getWriter().println("<div class='usuario'>Hello "+
-                        request.getSession().getAttribute("usuario")
-                        +"</div><div class='menu'><ul class='opcao'>");
+      response.getWriter().println("<div class='menu'><ul class='opcao'>");
+      response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/timeline' > Home</a></li>");
       response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/us/createpost.jsp' > Novo Post</a></li>");
-      response.getWriter().println("<li class='op1'>em construção</li></ul></div></div>");
+      response.getWriter().println("<li class='op12'>Logged as "+
+      request.getSession().getAttribute("usuario"));
+      response.getWriter().println("<li class='op12'>");
+      response.getWriter().println("<form class='search' action='http://localhost:8080/netflix/searchposts' method='GET'>");
+      response.getWriter().println("<input type='text' name='value' size='8'></input>");
+      response.getWriter().println("<input type='image' src='http://localhost:8080/netflix/Imagens/search.png' width='25' alt='submit'></input>");
+      response.getWriter().println("</form></li>");
+      response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/logout' >Sair</a></li>");
+      
+     response.getWriter().println("</ul></div></div>");
+      response.getWriter().println("<div class='head'><h1>Posts recentes </h1></div>");
+
       response.getWriter().println("<div class='mid'>");
       for(String c : posts) {      
         response.getWriter().println("<div class='conteudo'>");
-          String tag = "<iframe src='";
+          String tag = "<a href='http://localhost:8080/netflix/getpost?id=";
+          tag +=c;
+          tag += "'>Ver post completo</a>";
+          tag +=" <iframe src='";
           tag +="http://localhost:8080/netflix/getpost?id=";
           tag += c;
           tag += "' scrolling='no' >";
-          tag+="</iframe></div>";
+          tag += "</iframe>";
+          tag += "</div>";
            response.getWriter().println(tag);
       }
       response.getWriter().println("</div></div>");
       response.getWriter().println("<div class='rodape'>Dedicado ao mito X!</div>");
       response.getWriter().println("</body></html>");
     }else{
-       response.sendRedirect("http://localhost:8080/netflix/us/entrar.html");
+       response.sendRedirect("http://localhost:8080/netflix/us/erro.jsp?msg=Voce%20precisa%20estar%20logado%20para%20acessar%20este%20recurso");
     }
   }
 
@@ -65,7 +78,7 @@ public class TimeLineServlet extends HttpServlet {
       Connection conexao = null;
     try{
       conexao = conexaojdbc.ConectaBD();
-      String sql = "SELECT id FROM posts";
+      String sql = "SELECT id FROM posts ORDER BY id DESC";
       PreparedStatement preparedstatement = conexao.prepareStatement(sql);
         ResultSet result = preparedstatement.executeQuery();
         

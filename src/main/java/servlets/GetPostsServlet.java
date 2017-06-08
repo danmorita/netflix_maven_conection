@@ -35,7 +35,7 @@ public class GetPostsServlet extends HttpServlet {
 	  }
 
 	  public String LoadPost(String id)throws SQLException{
-	  	String conteudo="";
+	  	String conteudo="<html><head><link rel='stylesheet'type='text/css' href='../netflix/CSS/posts.css'/></head><body>";
 	  	ConexaoJDBC conexaojdbc = new ConexaoJDBC();
 		Connection conexao = null;
 		try{
@@ -47,7 +47,7 @@ public class GetPostsServlet extends HttpServlet {
 	    	
 	    	if(result.next()){
 	    		//encontrou
-	    		 conteudo = result.getString("conteudo");
+	    		 conteudo += result.getString("conteudo");
 	        }
 	     }catch(Exception err){
 	     	err.printStackTrace();	
@@ -55,6 +55,9 @@ public class GetPostsServlet extends HttpServlet {
 	     	if(conexao!=  null)
 	     		conexao.close();
 	     }
+
+	     conteudo +="</body></html>";
+
 
 	     return conteudo;
 	  }
