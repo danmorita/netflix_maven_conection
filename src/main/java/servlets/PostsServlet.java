@@ -11,17 +11,32 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import util.StringUtil;
+import controller.ControllerPosts;
+import model.Posts;
 
 @WebServlet(urlPatterns = "/savepost")
 public class PostsServlet extends HttpServlet {
  
 	 @Override
-	  public void doGet(HttpServletRequest request,
+	  public void doPost(HttpServletRequest request,
 	                    HttpServletResponse response)throws IOException
 	  {
 	      	String conteudo  = request.getParameter("conteudo");
+	      	String titulo  = request.getParameter("titulo");
+	      	String idFile = request.getParameter("idFile");
+
+	      	System.out.println("conteudo" + conteudo);
+	      	System.out.println("titulo" + titulo);
+	      	System.out.println("idFile" + idFile + "-+");
+	      	Posts post = new Posts();
+	      	post.setConteudo(conteudo+idFile.trim());
+	      	post.setTitulo(titulo);
+	      	// post.setIdFile(0);
+	      	
+
 	      	try{
-	      		SavePost(StringUtil.toPercentEncode(conteudo));
+	      		ControllerPosts savepost = new ControllerPosts();
+	      		savepost.savePost(post);
 	      		response.sendRedirect("http://localhost:8080/netflix/timeline");
 	      	}catch(Exception err){
 				//tratar
@@ -31,7 +46,8 @@ public class PostsServlet extends HttpServlet {
 			
 	  }
 
-	  public void SavePost(String cont)throws SQLException{
+	  @Deprecated
+	  public void savePost(String cont)throws SQLException{
 	  	ConexaoJDBC conexaojdbc = new ConexaoJDBC();
 			Connection conexao = null;
 			try{

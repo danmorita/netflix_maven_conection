@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import util.StringUtil;
 import java.sql.ResultSet;
 
+import controller.ControllerPosts;
+import model.Posts;
+
 
 @WebServlet(urlPatterns = "/getpost")
 public class GetPostsServlet extends HttpServlet {
@@ -34,6 +37,9 @@ public class GetPostsServlet extends HttpServlet {
 			
 	  }
 
+
+	  
+
 	  public String LoadPost(String id)throws SQLException{
 	  	String conteudo="<html><head><link rel='stylesheet'type='text/css' href='../netflix/CSS/posts.css'/></head><body>";
 	  	ConexaoJDBC conexaojdbc = new ConexaoJDBC();
@@ -49,12 +55,23 @@ public class GetPostsServlet extends HttpServlet {
 	    		//encontrou
 	    		 conteudo += result.getString("conteudo");
 	        }
+
+
 	     }catch(Exception err){
 	     	err.printStackTrace();	
 	     }finally{
 	     	if(conexao!=  null)
 	     		conexao.close();
 	     }
+
+
+	    //   ControllerPosts cp = new ControllerPosts();
+	    // try {
+	    //   Posts p = cp.findById(Integer.parseInt(id));
+	    //   conteudo += "<img src='http://localhost:8080/netflix/upload?item="+p.getIdFile()+"' />";
+	    // } catch(Exception err) {
+	    //   err.printStackTrace(); 
+	    // }
 
 	     conteudo +="</body></html>";
 

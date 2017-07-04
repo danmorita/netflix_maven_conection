@@ -11,8 +11,14 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import util.Base64Util;
 
 
+import controller.ControllerPosts;
+import model.Posts;
+
+import controller.ControllerArquivo;
+import model.Arquivo;
 
 @WebServlet(urlPatterns = "/timeline")
 public class TimeLineServlet extends HttpServlet {
@@ -30,27 +36,33 @@ public class TimeLineServlet extends HttpServlet {
       try{
 
         posts = LoadPosts();
+
       }catch(Exception err){
         err.printStackTrace();
       }
-      System.out.println("posts "+posts);
-      response.getWriter().println("<html><head><link rel='stylesheet'type='text/css' href='../netflix/CSS/timeline.css'/></head><body background='../netflix/Imagens/linho-cinza-textura-de-fundo_1053-253.jpg'>");
+  
+
+      response.getWriter().println("<html><head>");
+      response.getWriter().println("<link rel='stylesheet'type='text/css' href='../netflix/CSS/timeline.css'/>");
+      response.getWriter().println("<link rel='stylesheet'type='text/css' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'/>");
+      response.getWriter().println("</head><body background='../netflix/Imagens/linho-cinza-textura-de-fundo_1053-253.jpg'>");
       response.getWriter().println("<div class='menu'><ul class='opcao'>");
       response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/timeline' > Home</a></li>");
       response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/us/createpost.jsp' > Novo Post</a></li>");
       response.getWriter().println("<li class='op12'>Logged as "+
       request.getSession().getAttribute("usuario"));
       response.getWriter().println("<li class='op12'>");
-      response.getWriter().println("<form class='search' action='http://localhost:8080/netflix/searchposts' method='GET'>");
-      response.getWriter().println("<input type='text' name='value' size='8'></input>");
-      response.getWriter().println("<input type='image' src='http://localhost:8080/netflix/Imagens/search.png' width='25' alt='submit'></input>");
-      response.getWriter().println("</form></li>");
+      response.getWriter().println("<input id='pesquisar' type='text' name='value' size='8'></input>");
+      // response.getWriter().println("<button onclick='reload();'>pesquisar</button>");
+      response.getWriter().println("</li>");
       response.getWriter().println("<li class='op1'><a href='http://localhost:8080/netflix/logout' >Sair</a></li>");
-      
-     response.getWriter().println("</ul></div></div>");
+      response.getWriter().println("</ul></div></div>");
+
+      response.getWriter().println("<div id='reload'>");
       response.getWriter().println("<div class='head'><h1>Posts recentes </h1></div>");
 
       response.getWriter().println("<div class='mid'>");
+
       for(String c : posts) {      
         response.getWriter().println("<div class='conteudo'>");
           String tag = "<a href='http://localhost:8080/netflix/getpost?id=";
@@ -64,13 +76,38 @@ public class TimeLineServlet extends HttpServlet {
           tag += "</div>";
            response.getWriter().println(tag);
       }
+
+
+      response.getWriter().println("</div>");
       response.getWriter().println("</div></div>");
       response.getWriter().println("<div class='rodape'>Dedicado ao mito X!</div>");
+      response.getWriter().println("<script src='../netflix/JS/reload.js'></script>");
+      response.getWriter().println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+      response.getWriter().println("<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>");
+      response.getWriter().println("<script src='../netflix/JS/time-line.js'></script>");
       response.getWriter().println("</body></html>");
     }else{
        response.sendRedirect("http://localhost:8080/netflix/us/erro.jsp?msg=Voce%20precisa%20estar%20logado%20para%20acessar%20este%20recurso");
     }
   }
+
+  private String html = "";
+
+  private void montarConteudo(){
+    ControllerPosts cp = new ControllerPosts();
+    try {
+      for (Posts p : cp.findAll()){
+        html += "<div class='conteudo'>";
+        html += "<img src='http://localhost:8080/netflix/upload?item="+p.getIdFile()+"' />";      
+        html += "</div>";
+      } 
+    } catch(Exception err) {
+      err.printStackTrace(); 
+    }
+
+  }
+
+
 
   public ArrayList<String> LoadPosts()throws SQLException{
       ArrayList<String> conteudo= new ArrayList<String>();

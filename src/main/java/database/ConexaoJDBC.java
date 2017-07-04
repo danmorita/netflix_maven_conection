@@ -10,7 +10,7 @@ public class ConexaoJDBC {
     Connection c;
     public Connection ConectaBD() throws SQLException, ClassNotFoundException{
         Class.forName("org.postgresql.Driver");
-        c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/netflix","teste","senhadificil");
+        c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/netflix","postgres","admin");
     	System.out.println("banco de dados conectado!");
         return c;
     }
